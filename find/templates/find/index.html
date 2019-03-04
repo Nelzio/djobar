@@ -1,0 +1,25 @@
+{% extends "find/base.html" %}
+
+{% block  content_page %}
+{% load static %}
+<div class="row">
+	{% for t in test %}
+    <div class="col s4">
+      <div class="card white accent-4">
+        <div class="card-content white-text">
+          <span class="card-title">Card Title</span>
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+        	<div class="row n-actions">
+        		<a class="waves-effect waves-teal teal-text text-accent-4 btn btn-flat col s6" href="#">This is a link</a>
+          		<a class="waves-effect waves-teal teal-text text-accent-4 btn btn-flat col s6" href="#">This is a link</a>
+        	</div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock  %}
