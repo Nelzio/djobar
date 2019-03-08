@@ -5,6 +5,7 @@ from mimetypes import guess_type
 from django.http import HttpResponse
 from django.http import StreamingHttpResponse
 from wsgiref.util import FileWrapper
+from django.http import FileResponse
 # download
 # Create your views here.
 
@@ -34,10 +35,13 @@ def download_view(request):
     filename = os.path.basename(file_path)
     # filename = "Mint"
     chunk_size = 8192
+    response = FileResponse(open(file_path, 'rb'))
+    '''
     response = StreamingHttpResponse(
        FileWrapper(open(file_path, 'rb'), chunk_size),
        content_type="application/octet-stream"
     )
+    '''
     # response['Content-Length'] = os.path.getsize(the_file)    
     response['Content-Disposition'] = "attachment; filename=%s" % filename
     return response
