@@ -3,6 +3,8 @@ from django.shortcuts import render
 import os
 from mimetypes import guess_type
 from django.http import HttpResponse
+from django.http import StreamingHttpResponse
+from wsgiref.util import FileWrapper
 # download
 # Create your views here.
 
@@ -22,12 +24,23 @@ def fonts(request):
 
 
 def download_view(request):
-    file_path = os.path.join('find', 'static', 'find', 'libs', 'jquery.js.zip')
-
+    file_path = os.path.join('find', 'static', 'find', 'downloads', 'linuxmint-19.1-xfce-64bit.iso')
+    '''
     with open(file_path, 'rb') as f:
         response = HttpResponse(f, content_type=guess_type(file_path)[0])
         response['Content-Length'] = len(response.content)
         return response
+    '''
+    filename = os.path.basename(file_path)
+    # filename = "Mint"
+    chunk_size = 8192
+    response = StreamingHttpResponse(
+       FileWrapper(open(file_path, 'rb'), chunk_size),
+       content_type="application/octet-stream"
+    )
+    # response['Content-Length'] = os.path.getsize(the_file)    
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    return response
 
 
 def aaa(request):
