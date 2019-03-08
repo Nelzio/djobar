@@ -3,19 +3,51 @@
 {% block  content_page %}
 {% load static %}
 <div class="row">
-	{% for t in test %}
+    {% static 'find/img/avatar.png' %}
     <div class="col s4">
       <div class="card white accent-4">
-        <div class="card-content white-text">
-          <span class="card-title">Card Title</span>
+        <div class="card-content black-text">
+          <span class="card-title">Canalizador</span>
           <p>I am a very simple card. I am good at containing small bits of information.
           I am convenient because I require little markup to use effectively.</p>
         </div>
-        <div class="card-action">
-        	<div class="row n-actions">
-        		<a class="waves-effect waves-teal teal-text text-accent-4 btn btn-flat col s6" href="#">This is a link</a>
-          		<a class="waves-effect waves-teal teal-text text-accent-4 btn btn-flat col s6" href="#">This is a link</a>
-        	</div>
+        <div class="card-action n-actions">
+            <div class="row">
+                <a class="waves-effect waves-lighten teal-text btn btn-flat col s6" href="/details">Detalhes</a>
+                <a class="waves-effect waves-lighten teal-text btn btn-flat col s6" href="#">Concorer</a>
+            </div>
+        </div>
+      </div>
+    </div>
+    {% for t in test %}
+    <div class="col s4">
+      <div class="card white accent-4">
+        <div class="card-content black-text">
+          <span class="card-title">Canalizador</span>
+          <p>Canalizador para um condominio na cidade de maputo com um prazo de 12 meses.</p>
+          <div>
+            <ul>
+                <li>
+                    <i class="fa fa-map-marker teal-text icons text-accent-4"></i>
+                    <span>Maputo Cidade, Bairro Central.</span>
+                </li>
+                <li>
+                    <i class="fa fa-clock-o teal-text icons text-accent-4"></i>
+                    <span>12/05/19 <i class="fa fa-arrow-right teal-text text-accent-4"></i> 15/05/19</span>
+                </li>
+                <li>
+                    <i class="fa fa-dollar teal-text icons text-accent-4"></i>
+                    <span>5000Mt <i class="fa fa-arrow-right teal-text text-accent-4"></i> 8000Mt</span>
+                </li>
+            </ul>
+            
+          </div>
+        </div>
+        <div class="card-action n-actions">
+            <div class="row">
+                <a class="waves-effect waves-lighten teal-text text-accent-4 btn btn-flat col s6" href="/details">Detalhes</a>
+                <a class="waves-effect waves-lighten teal-text text-accent-4 btn btn-flat col s6" href="#">Concorer</a>
+            </div>
         </div>
       </div>
     </div>
